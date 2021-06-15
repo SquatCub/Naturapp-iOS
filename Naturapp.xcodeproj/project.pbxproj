@@ -15,6 +15,7 @@
 		AC4FF2542678545D008851D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC4FF2532678545D008851D4 /* Assets.xcassets */; };
 		AC4FF2572678545D008851D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4FF2552678545D008851D4 /* LaunchScreen.storyboard */; };
 		AC4FF26526785FFB008851D4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC4FF26426785FFB008851D4 /* GoogleService-Info.plist */; };
+		AC4FF27C267870EE008851D4 /* RegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF27B267870EE008851D4 /* RegistroViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		AC4FF2562678545D008851D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC4FF2582678545D008851D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC4FF26426785FFB008851D4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AC4FF27B267870EE008851D4 /* RegistroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewController.swift; sourceTree = "<group>"; };
 		C5FCA6B24595E76732C1897B /* Pods-Naturapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naturapp.release.xcconfig"; path = "Target Support Files/Pods-Naturapp/Pods-Naturapp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 				AC4FF2532678545D008851D4 /* Assets.xcassets */,
 				AC4FF2552678545D008851D4 /* LaunchScreen.storyboard */,
 				AC4FF2582678545D008851D4 /* Info.plist */,
+				AC4FF27B267870EE008851D4 /* RegistroViewController.swift */,
 			);
 			path = Naturapp;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC4FF24F2678545C008851D4 /* ViewController.swift in Sources */,
+				AC4FF27C267870EE008851D4 /* RegistroViewController.swift in Sources */,
 				AC4FF24B2678545C008851D4 /* AppDelegate.swift in Sources */,
 				AC4FF24D2678545C008851D4 /* SceneDelegate.swift in Sources */,
 			);
