@@ -3,19 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1D00788807243EE8D7E91B5 /* Pods_Naturapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63797B599F36993388BA7050 /* Pods_Naturapp.framework */; };
 		AC4FF24B2678545C008851D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF24A2678545C008851D4 /* AppDelegate.swift */; };
 		AC4FF24D2678545C008851D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF24C2678545C008851D4 /* SceneDelegate.swift */; };
 		AC4FF24F2678545C008851D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF24E2678545C008851D4 /* ViewController.swift */; };
 		AC4FF2522678545C008851D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4FF2502678545C008851D4 /* Main.storyboard */; };
 		AC4FF2542678545D008851D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC4FF2532678545D008851D4 /* Assets.xcassets */; };
 		AC4FF2572678545D008851D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4FF2552678545D008851D4 /* LaunchScreen.storyboard */; };
+		AC4FF26526785FFB008851D4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC4FF26426785FFB008851D4 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6067652F2652BAF2D8869789 /* Pods-Naturapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naturapp.debug.xcconfig"; path = "Target Support Files/Pods-Naturapp/Pods-Naturapp.debug.xcconfig"; sourceTree = "<group>"; };
+		63797B599F36993388BA7050 /* Pods_Naturapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naturapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC4FF2472678545C008851D4 /* Naturapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Naturapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC4FF24A2678545C008851D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC4FF24C2678545C008851D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +28,8 @@
 		AC4FF2532678545D008851D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC4FF2562678545D008851D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC4FF2582678545D008851D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC4FF26426785FFB008851D4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C5FCA6B24595E76732C1897B /* Pods-Naturapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naturapp.release.xcconfig"; path = "Target Support Files/Pods-Naturapp/Pods-Naturapp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1D00788807243EE8D7E91B5 /* Pods_Naturapp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08419D6BCD3B31FFAEF6CF7F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				63797B599F36993388BA7050 /* Pods_Naturapp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AC4FF23E2678545C008851D4 = {
 			isa = PBXGroup;
 			children = (
 				AC4FF2492678545C008851D4 /* Naturapp */,
 				AC4FF2482678545C008851D4 /* Products */,
+				B45F3CF518DE384A15DA5714 /* Pods */,
+				08419D6BCD3B31FFAEF6CF7F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +73,7 @@
 		AC4FF2492678545C008851D4 /* Naturapp */ = {
 			isa = PBXGroup;
 			children = (
+				AC4FF26426785FFB008851D4 /* GoogleService-Info.plist */,
 				AC4FF24A2678545C008851D4 /* AppDelegate.swift */,
 				AC4FF24C2678545C008851D4 /* SceneDelegate.swift */,
 				AC4FF24E2678545C008851D4 /* ViewController.swift */,
@@ -67,6 +85,15 @@
 			path = Naturapp;
 			sourceTree = "<group>";
 		};
+		B45F3CF518DE384A15DA5714 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6067652F2652BAF2D8869789 /* Pods-Naturapp.debug.xcconfig */,
+				C5FCA6B24595E76732C1897B /* Pods-Naturapp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC4FF25B2678545D008851D4 /* Build configuration list for PBXNativeTarget "Naturapp" */;
 			buildPhases = (
+				DA38C7C231D9114D0431EE59 /* [CP] Check Pods Manifest.lock */,
 				AC4FF2432678545C008851D4 /* Sources */,
 				AC4FF2442678545C008851D4 /* Frameworks */,
 				AC4FF2452678545C008851D4 /* Resources */,
+				AA8F26ED0CCFE0EA86659916 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,12 +154,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC4FF2572678545D008851D4 /* LaunchScreen.storyboard in Resources */,
+				AC4FF26526785FFB008851D4 /* GoogleService-Info.plist in Resources */,
 				AC4FF2542678545D008851D4 /* Assets.xcassets in Resources */,
 				AC4FF2522678545C008851D4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AA8F26ED0CCFE0EA86659916 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Naturapp/Pods-Naturapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Naturapp/Pods-Naturapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Naturapp/Pods-Naturapp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA38C7C231D9114D0431EE59 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Naturapp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AC4FF2432678545C008851D4 /* Sources */ = {
@@ -283,6 +355,7 @@
 		};
 		AC4FF25C2678545D008851D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6067652F2652BAF2D8869789 /* Pods-Naturapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -293,7 +366,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.itmorelia.Naturapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.itmorelia.bran.Naturapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -302,6 +375,7 @@
 		};
 		AC4FF25D2678545D008851D4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5FCA6B24595E76732C1897B /* Pods-Naturapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -312,7 +386,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.itmorelia.Naturapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.itmorelia.bran.Naturapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
