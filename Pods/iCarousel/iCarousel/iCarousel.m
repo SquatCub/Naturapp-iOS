@@ -1082,7 +1082,7 @@ NSComparisonResult compareViewDepth(UIView *view1, UIView *view2, iCarousel *sel
         case iCarouselTypeLinear:
         case iCarouselTypeCustom:
         {
-            _wrapEnabled = NO;
+            _wrapEnabled = YES;
             break;
         }
     }

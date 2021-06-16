@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="51" translatesAutoresizingMaskIntoConstraints="NO" id="NGa-49-hX0">
-                                <rect key="frame" x="30" y="120" width="315" height="331.5"/>
+                                <rect key="frame" x="30" y="200" width="315" height="331.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="88" translatesAutoresizingMaskIntoConstraints="NO" id="k0P-Bu-KHQ">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="228"/>
@@ -79,7 +79,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="NGa-49-hX0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="0gY-C1-Uoq"/>
+                            <constraint firstItem="NGa-49-hX0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="0gY-C1-Uoq"/>
                             <constraint firstItem="NGa-49-hX0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="21N-Vb-6fV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NGa-49-hX0" secondAttribute="trailing" constant="30" id="m6B-v3-MXL"/>
                         </constraints>
@@ -209,7 +209,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="OzP-h2-5tL"/>
+        <segue reference="qM9-aZ-qqh"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
