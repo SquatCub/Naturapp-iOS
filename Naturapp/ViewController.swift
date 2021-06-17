@@ -28,8 +28,10 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
         view.addSubview(myCarousel)
         myCarousel.dataSource = self
         myCarousel.delegate = self
-        myCarousel.autoscroll = -0.3
+        myCarousel.autoscroll = -0.2
         myCarousel.frame = CGRect(x: 0, y: 30, width: view.frame.size.width, height: 100)
+        
+        initialSetup()
     }
     
     //Accion para iniciar sesion
@@ -68,7 +70,6 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
         present(alerta, animated: true, completion: nil)
     }
     
-    
     //Metodos para el carrusel
     func numberOfItems(in carousel: iCarousel) -> Int {
         return 3
@@ -80,5 +81,21 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
         imageView.contentMode = .scaleToFill
         imageView.image = UIImage(named: "img\(index+1)")
         return view
+    }
+    
+    func initialSetup() {
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0.0, y: correoTextField.frame.height - 7, width: correoTextField.frame.width, height: 0.6)
+        bottomLine.backgroundColor = UIColor.gray.cgColor
+        
+        let bottomLine2 = CALayer()
+        bottomLine2.frame = CGRect(x: 0.0, y: contraseñaTextField.frame.height - 7, width: contraseñaTextField.frame.width, height: 0.6)
+        bottomLine2.backgroundColor = UIColor.gray.cgColor
+        
+        correoTextField.borderStyle = UITextField.BorderStyle.none
+        contraseñaTextField.borderStyle = UITextField.BorderStyle.none
+        
+        correoTextField.layer.addSublayer(bottomLine)
+        contraseñaTextField.layer.addSublayer(bottomLine2)
     }
 }

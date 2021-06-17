@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="51" translatesAutoresizingMaskIntoConstraints="NO" id="NGa-49-hX0">
-                                <rect key="frame" x="30" y="300" width="315" height="276.5"/>
+                                <rect key="frame" x="30" y="300" width="315" height="286.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="k0P-Bu-KHQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="315" height="168"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="k0P-Bu-KHQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="178"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="EwH-SO-KAl">
-                                                <rect key="frame" x="0.0" y="0.0" width="315" height="98"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="EwH-SO-KAl">
+                                                <rect key="frame" x="0.0" y="0.0" width="315" height="103"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="bran@g.com" borderStyle="roundedRect" placeholder="Correo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MKe-PO-epo">
                                                         <rect key="frame" x="0.0" y="0.0" width="315" height="34"/>
@@ -31,14 +31,14 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iHJ-FP-8tp">
-                                                        <rect key="frame" x="0.0" y="64" width="315" height="34"/>
+                                                        <rect key="frame" x="0.0" y="69" width="315" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8h-gB-x5D">
-                                                <rect key="frame" x="0.0" y="128" width="315" height="40"/>
+                                                <rect key="frame" x="0.0" y="138" width="315" height="40"/>
                                                 <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="tr1-yN-Byo"/>
@@ -65,7 +65,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7PA-NG-b6G">
-                                        <rect key="frame" x="91.5" y="219" width="132" height="57.5"/>
+                                        <rect key="frame" x="91.5" y="229" width="132" height="57.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿No tienes una cuenta?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIg-wQ-8OV">
                                                 <rect key="frame" x="0.0" y="0.0" width="132" height="14.5"/>
