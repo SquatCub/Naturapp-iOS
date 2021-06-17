@@ -14,7 +14,7 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
     //Inicializacion del carrusel
     let myCarousel: iCarousel = {
         let view = iCarousel()
-        view.type = .coverFlow2
+        view.type = .linear
         return view
     }()
     
@@ -28,8 +28,8 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
         view.addSubview(myCarousel)
         myCarousel.dataSource = self
         myCarousel.delegate = self
-        myCarousel.autoscroll = -0.5
-        myCarousel.frame = CGRect(x: 0, y: 40, width: view.frame.size.width, height: 150)
+        myCarousel.autoscroll = -0.3
+        myCarousel.frame = CGRect(x: 0, y: 30, width: view.frame.size.width, height: 100)
     }
     
     //Accion para iniciar sesion
@@ -74,11 +74,10 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
         return 3
     }
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
-        view.backgroundColor = .blue
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 100))
         let imageView = UIImageView(frame: view.bounds)
         view.addSubview(imageView)
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleToFill
         imageView.image = UIImage(named: "img\(index+1)")
         return view
     }
