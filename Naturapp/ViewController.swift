@@ -21,6 +21,7 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
     //Outlets del storyboard
     @IBOutlet weak var correoTextField: UITextField!
     @IBOutlet weak var contraseñaTextField: UITextField!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,7 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
     
     //Accion para iniciar sesion
     @IBAction func loginButton(_ sender: UIButton) {
+        indicator.startAnimating()
         if let email = correoTextField.text, let password = contraseñaTextField.text  {
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                 if let e = error {
@@ -56,8 +58,10 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
                             break
                     }
                     self.mensajeAlerta(mensaje: msj)
+                    self.indicator.stopAnimating()
                 } else {
                     self.performSegue(withIdentifier: "login", sender: self)
+                    self.indicator.stopAnimating()
                 }
             }
         }
@@ -84,6 +88,7 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
     }
     
     func initialSetup() {
+        
         let bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0.0, y: correoTextField.frame.height - 7, width: correoTextField.frame.width, height: 0.6)
         bottomLine.backgroundColor = UIColor.gray.cgColor
@@ -97,5 +102,8 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
         
         correoTextField.layer.addSublayer(bottomLine)
         contraseñaTextField.layer.addSublayer(bottomLine2)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
     }
 }
