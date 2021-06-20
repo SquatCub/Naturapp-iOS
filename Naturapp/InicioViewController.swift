@@ -16,7 +16,7 @@ class InicioViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let collectionLayout = UICollectionViewFlowLayout()
-        collectionLayout.itemSize = CGSize(width: view.frame.size.width/2 - 20, height: 150)
+        collectionLayout.itemSize = CGSize(width: view.frame.size.width/2 - 20, height: 160)
         collectionView.collectionViewLayout = collectionLayout
         collectionView.register(UINib(nibName: "MyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "col")
         collectionView.delegate = self
@@ -63,6 +63,6 @@ extension InicioViewController: UICollectionViewDataSource {
 
 extension InicioViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.size.width/2 - 20, height: 150)
+        return CGSize(width: view.frame.size.width/2 - 20, height: 160)
     }
 }

@@ -185,16 +185,23 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Descubrir" id="aVw-ku-LmN">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="bwQ-36-Qbp">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="L5w-Bm-Qt3">
-                                <rect key="frame" x="329" y="7" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Salir"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Añadir" id="BFz-2Q-kNy">
                                 <connections>
-                                    <action selector="cerrarSesion:" destination="5qN-Zd-8NP" eventType="touchUpInside" id="Xcw-O6-D55"/>
+                                    <segue destination="Q2Z-gT-nqE" kind="show" id="tTB-vr-8xc"/>
                                 </connections>
-                            </button>
-                        </barButtonItem>
+                            </barButtonItem>
+                            <barButtonItem id="bwQ-36-Qbp">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="L5w-Bm-Qt3">
+                                    <rect key="frame" x="271.5" y="7" width="30" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Salir"/>
+                                    <connections>
+                                        <action selector="cerrarSesion:" destination="5qN-Zd-8NP" eventType="touchUpInside" id="Xcw-O6-D55"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Q17-eG-A3X" id="IKk-Tv-Xld"/>
@@ -203,6 +210,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIl-c6-UuB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2703.1999999999998" y="46.326836581709152"/>
+        </scene>
+        <!--Compartir lugar-->
+        <scene sceneID="MOf-ra-ejA">
+            <objects>
+                <viewController id="Q2Z-gT-nqE" customClass="CompartirViewController" customModule="Naturapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2r4-32-ljI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="pbq-3N-Y58">
+                                <rect key="frame" x="30" y="106" width="139.5" height="268"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="Dhf-pt-mA3">
+                                        <rect key="frame" x="0.0" y="0.0" width="139.5" height="167"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionmark.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="AaJ-iq-dVe">
+                                                <rect key="frame" x="0.0" y="1" width="139.5" height="97.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="2Y7-CN-iWe"/>
+                                                    <constraint firstAttribute="width" constant="100" id="z53-ff-IqO"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre del lugar" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sz0-gE-Rp5">
+                                                <rect key="frame" x="0.0" y="133" width="139.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69r-Ok-tVJ">
+                                        <rect key="frame" x="30" y="228" width="80" height="40"/>
+                                        <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="9hU-S1-Xyx"/>
+                                            <constraint firstAttribute="height" constant="40" id="uxQ-kb-Ngz"/>
+                                        </constraints>
+                                        <state key="normal" title="Compartir">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="compartirButtton:" destination="Q2Z-gT-nqE" eventType="touchUpInside" id="G6x-K2-u1o"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Dhf-pt-mA3" firstAttribute="leading" secondItem="pbq-3N-Y58" secondAttribute="leading" id="7XP-b3-ncb"/>
+                                    <constraint firstAttribute="trailing" secondItem="Dhf-pt-mA3" secondAttribute="trailing" id="lHy-Rv-MSV"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GS3-W1-3sI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GS3-W1-3sI" firstAttribute="trailing" secondItem="pbq-3N-Y58" secondAttribute="trailing" constant="30" id="REe-mp-oH5"/>
+                            <constraint firstItem="pbq-3N-Y58" firstAttribute="leading" secondItem="GS3-W1-3sI" secondAttribute="leading" constant="30" id="dgr-mX-LZg"/>
+                            <constraint firstItem="pbq-3N-Y58" firstAttribute="top" secondItem="GS3-W1-3sI" secondAttribute="top" constant="10" id="w6U-Nl-u6t"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Compartir lugar" id="cfp-cy-Ul9"/>
+                    <connections>
+                        <outlet property="image" destination="AaJ-iq-dVe" id="zeX-Sn-Sx9"/>
+                        <outlet property="nombreLabel" destination="Sz0-gE-Rp5" id="lA4-Ci-uM4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Elr-iN-EOo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3509.5999999999999" y="45.42728635682159"/>
         </scene>
         <!--Registro-->
         <scene sceneID="3Db-1B-sXL">
@@ -325,6 +404,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="banner" width="1000" height="273"/>
+        <image name="questionmark.square" catalog="system" width="128" height="114"/>
         <image name="title" width="636" height="300"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

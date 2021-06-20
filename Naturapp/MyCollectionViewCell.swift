@@ -14,6 +14,7 @@ class MyCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         imageView.contentMode = .scaleToFill
+        imageView.layer.cornerRadius = 10
     }
 
 }
