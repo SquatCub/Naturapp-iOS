@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A1D00788807243EE8D7E91B5 /* Pods_Naturapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63797B599F36993388BA7050 /* Pods_Naturapp.framework */; };
 		AC441D18267E9C50001BF8A0 /* InicioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC441D17267E9C50001BF8A0 /* InicioViewController.swift */; };
+		AC441D1C267EB519001BF8A0 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC441D1A267EB519001BF8A0 /* MyCollectionViewCell.swift */; };
+		AC441D1D267EB519001BF8A0 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC441D1B267EB519001BF8A0 /* MyCollectionViewCell.xib */; };
 		AC4FF24B2678545C008851D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF24A2678545C008851D4 /* AppDelegate.swift */; };
 		AC4FF24D2678545C008851D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF24C2678545C008851D4 /* SceneDelegate.swift */; };
 		AC4FF24F2678545C008851D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF24E2678545C008851D4 /* ViewController.swift */; };
@@ -23,6 +25,8 @@
 		6067652F2652BAF2D8869789 /* Pods-Naturapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naturapp.debug.xcconfig"; path = "Target Support Files/Pods-Naturapp/Pods-Naturapp.debug.xcconfig"; sourceTree = "<group>"; };
 		63797B599F36993388BA7050 /* Pods_Naturapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naturapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC441D17267E9C50001BF8A0 /* InicioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicioViewController.swift; sourceTree = "<group>"; };
+		AC441D1A267EB519001BF8A0 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		AC441D1B267EB519001BF8A0 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
 		AC4FF2472678545C008851D4 /* Naturapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Naturapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC4FF24A2678545C008851D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC4FF24C2678545C008851D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 				AC4FF2582678545D008851D4 /* Info.plist */,
 				AC4FF27B267870EE008851D4 /* RegistroViewController.swift */,
 				AC441D17267E9C50001BF8A0 /* InicioViewController.swift */,
+				AC441D1A267EB519001BF8A0 /* MyCollectionViewCell.swift */,
+				AC441D1B267EB519001BF8A0 /* MyCollectionViewCell.xib */,
 			);
 			path = Naturapp;
 			sourceTree = "<group>";
@@ -159,6 +165,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC441D1D267EB519001BF8A0 /* MyCollectionViewCell.xib in Resources */,
 				AC4FF2572678545D008851D4 /* LaunchScreen.storyboard in Resources */,
 				AC4FF26526785FFB008851D4 /* GoogleService-Info.plist in Resources */,
 				AC4FF2542678545D008851D4 /* Assets.xcassets in Resources */,
@@ -217,6 +224,7 @@
 			files = (
 				AC4FF24F2678545C008851D4 /* ViewController.swift in Sources */,
 				AC4FF27C267870EE008851D4 /* RegistroViewController.swift in Sources */,
+				AC441D1C267EB519001BF8A0 /* MyCollectionViewCell.swift in Sources */,
 				AC4FF24B2678545C008851D4 /* AppDelegate.swift in Sources */,
 				AC441D18267E9C50001BF8A0 /* InicioViewController.swift in Sources */,
 				AC4FF24D2678545C008851D4 /* SceneDelegate.swift in Sources */,

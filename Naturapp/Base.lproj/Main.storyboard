@@ -155,8 +155,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Q17-eG-A3X">
-                                <rect key="frame" x="20" y="96" width="335" height="571"/>
-                                <color key="backgroundColor" red="1" green="0.44617347289999998" blue="0.16439217640000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="10" y="96" width="355" height="571"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NyY-bx-7FJ">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -178,8 +178,8 @@
                         <viewLayoutGuide key="safeArea" id="HP0-Rz-VXu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Q17-eG-A3X" firstAttribute="leading" secondItem="HP0-Rz-VXu" secondAttribute="leading" constant="20" id="22Z-dO-vFW"/>
-                            <constraint firstItem="HP0-Rz-VXu" firstAttribute="trailing" secondItem="Q17-eG-A3X" secondAttribute="trailing" constant="20" id="2ad-Kr-eYK"/>
+                            <constraint firstItem="Q17-eG-A3X" firstAttribute="leading" secondItem="HP0-Rz-VXu" secondAttribute="leading" constant="10" id="22Z-dO-vFW"/>
+                            <constraint firstItem="HP0-Rz-VXu" firstAttribute="trailing" secondItem="Q17-eG-A3X" secondAttribute="trailing" constant="10" id="2ad-Kr-eYK"/>
                             <constraint firstItem="Q17-eG-A3X" firstAttribute="top" secondItem="HP0-Rz-VXu" secondAttribute="top" id="C73-Ce-bmF"/>
                             <constraint firstItem="HP0-Rz-VXu" firstAttribute="bottom" secondItem="Q17-eG-A3X" secondAttribute="bottom" id="dIT-6l-6Ux"/>
                         </constraints>
@@ -196,6 +196,9 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="Q17-eG-A3X" id="IKk-Tv-Xld"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIl-c6-UuB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
