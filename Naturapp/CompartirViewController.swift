@@ -56,7 +56,7 @@ class CompartirViewController: UIViewController {
                         print("Error al mandar datos de imagen \(err.localizedDescription)")
                         return
                     } else {
-                        let alerta = UIAlertController(title: "Correcto!", message: "Datos guardados correctamente", preferredStyle: .alert)
+                        let alerta = UIAlertController(title: "Correcto!", message: "El lugar se ha compartido correctamente", preferredStyle: .alert)
                         let accionAceptar = UIAlertAction(title: "Aceptar", style: .default)
                         alerta.addAction(accionAceptar)
                         self.present(alerta, animated: true, completion: nil)

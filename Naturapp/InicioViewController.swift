@@ -9,9 +9,12 @@ import UIKit
 import Firebase
 
 class InicioViewController: UIViewController {
+    //Base de datos
+    let db = Firestore.firestore()
+    //Objeto personalizado de lugar
+    var lugares = [Lugar]()
     //Outlets del storyboard
     @IBOutlet weak var collectionView: UICollectionView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +42,39 @@ class InicioViewController: UIViewController {
     func initialSetup() {
         navigationController?.isNavigationBarHidden = false
         navigationItem.hidesBackButton = true
+        cargarLugares()
+    }
+    
+    func cargarLugares() {
+        db.collection("lugares").addSnapshotListener() { (querySnapshot, err) in
+            //Vaciar arreglo de chats
+            self.lugares = []
+            if let e = err {
+                print("Error al obtener datos \(e.localizedDescription)")
+            } else {
+                if let snapshotDocumentos = querySnapshot?.documents {
+                    for document in snapshotDocumentos {
+                        print("\(document.data())")
+                        //Crear objeto Mensaje
+                        let datos = document.data()
+                        //Obtener parametros
+                        guard let nombreFS = datos["nombre"] as? String else { return }
+                        guard let imagenFS = datos["imagen"] as? String else { return }
+                        
+                        
+                        //Crear objeto y agregarlo al arreglo
+                        let nuevoLugar = Lugar(nombre: nombreFS, imagen: imagenFS)
+                        self.lugares.append(nuevoLugar)
+                        DispatchQueue.main.async {
+                            self.collectionView.reloadData()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
     }
 }
 
@@ -51,12 +87,24 @@ extension InicioViewController: UICollectionViewDelegate {
 
 extension InicioViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return lugares.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "col", for: indexPath) as! MyCollectionViewCell
-        cell.imageView.image = UIImage(named: "img1")
-        cell.tituloLabel.text = "Hola"
+        cell.tituloLabel.text = lugares[indexPath.row].nombre
+        
+        let url = URL(string: lugares[indexPath.row].imagen)
+
+        DispatchQueue.main.async { [weak self] in
+            if let data = try? Data(contentsOf: url!) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        cell.imageView.image = image
+                    }
+                }
+            }
+        }
+        
         return cell
     }
 }

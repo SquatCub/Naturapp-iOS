@@ -12,6 +12,7 @@
 		AC441D1C267EB519001BF8A0 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC441D1A267EB519001BF8A0 /* MyCollectionViewCell.swift */; };
 		AC441D1D267EB519001BF8A0 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC441D1B267EB519001BF8A0 /* MyCollectionViewCell.xib */; };
 		AC441D20267EC62A001BF8A0 /* CompartirViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC441D1F267EC62A001BF8A0 /* CompartirViewController.swift */; };
+		AC441D23267ECC00001BF8A0 /* Lugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC441D22267ECC00001BF8A0 /* Lugar.swift */; };
 		AC4FF24B2678545C008851D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF24A2678545C008851D4 /* AppDelegate.swift */; };
 		AC4FF24D2678545C008851D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF24C2678545C008851D4 /* SceneDelegate.swift */; };
 		AC4FF24F2678545C008851D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF24E2678545C008851D4 /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 		AC441D1A267EB519001BF8A0 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC441D1B267EB519001BF8A0 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
 		AC441D1F267EC62A001BF8A0 /* CompartirViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompartirViewController.swift; sourceTree = "<group>"; };
+		AC441D22267ECC00001BF8A0 /* Lugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lugar.swift; sourceTree = "<group>"; };
 		AC4FF2472678545C008851D4 /* Naturapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Naturapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC4FF24A2678545C008851D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC4FF24C2678545C008851D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				AC441D1A267EB519001BF8A0 /* MyCollectionViewCell.swift */,
 				AC441D1B267EB519001BF8A0 /* MyCollectionViewCell.xib */,
 				AC441D1F267EC62A001BF8A0 /* CompartirViewController.swift */,
+				AC441D22267ECC00001BF8A0 /* Lugar.swift */,
 			);
 			path = Naturapp;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC441D20267EC62A001BF8A0 /* CompartirViewController.swift in Sources */,
+				AC441D23267ECC00001BF8A0 /* Lugar.swift in Sources */,
 				AC4FF24F2678545C008851D4 /* ViewController.swift in Sources */,
 				AC4FF27C267870EE008851D4 /* RegistroViewController.swift in Sources */,
 				AC441D1C267EB519001BF8A0 /* MyCollectionViewCell.swift in Sources */,
