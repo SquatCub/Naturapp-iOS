@@ -9,23 +9,33 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseStorage
+import MapKit
+import CoreLocation
 
 class CompartirViewController: UIViewController {
     //Outlets del storyboard
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var nombreLabel: UITextField!
     
+    // Manager para usar el GPS
+    var manager = CLLocationManager()
+    // Variables a utilizar en la ubicacion
+    var latitud: CLLocationDegrees?
+    var longitud: CLLocationDegrees?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        initializeLocation()
+        //Inicializa la gestura de la imagen
         initializeImage()
+        
+        
     }
     
     
     @IBAction func compartirButtton(_ sender: UIButton) {
         //Checar si hay imagen
-        guard let image = image.image, let datosImage = image.jpegData(compressionQuality: 1.0) else {
+        guard let image = image.image, let datosImage = image.jpegData(compressionQuality: 0.5) else {
             print ("Error")
             return
         }
@@ -49,7 +59,7 @@ class CompartirViewController: UIViewController {
                 //Subir a Firestore
                 let dataReferencia = Firestore.firestore().collection("lugares").document(nombre)
                 let urlString = url.absoluteString
-                let datosEnviar = ["imagen": urlString, "nombre": nombre]
+                let datosEnviar = ["imagen": urlString, "nombre": nombre, "latitud": "\(self.latitud!)", "longitud": "\(self.longitud!)"]
                 
                 dataReferencia.setData(datosEnviar) { (error) in
                     if let err = error {
@@ -78,6 +88,17 @@ class CompartirViewController: UIViewController {
         image.isUserInteractionEnabled = true
     }
     
+    func initializeLocation() {
+        //Asignacion de delegado y funciones para la ubicacion
+        manager.delegate = self
+        manager.requestWhenInUseAuthorization()
+        manager.requestLocation()
+        //Mejorar la presicion de la ubicacion
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        //Monitorear ubicacion en todo momento
+        manager.startUpdatingLocation()
+    }
+    
     //Funcion de gestura
     @objc func clickImagen(gestura: UITapGestureRecognizer) {
         print("cambiar imagen")
@@ -86,6 +107,9 @@ class CompartirViewController: UIViewController {
         vc.delegate = self
         vc.allowsEditing = true
         present(vc, animated: true, completion: nil)
+    }
+    @IBAction func test(_ sender: UIButton) {
+        print("\(latitud) y \(longitud)")
     }
 }
 
@@ -102,5 +126,22 @@ extension CompartirViewController: UIImagePickerControllerDelegate, UINavigation
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+// Extension del ViewController donde estan los delegados de la ubicacion y de la barra de busqueda
+extension CompartirViewController: CLLocationManagerDelegate, UISearchBarDelegate, MKMapViewDelegate {
+    // Funcion para obtener las coordenadas del usuario
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // Variable segura en caso de no tener permisos no crashe la app
+        guard let ubicacion = locations.first else {
+            return
+        }
+        latitud = ubicacion.coordinate.latitude
+        longitud = ubicacion.coordinate.longitude
+    }
+    // En caso de error o no tener permisos
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error al obtener la ubicacion \(error)")
     }
 }

@@ -21,6 +21,7 @@
 		AC4FF2572678545D008851D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4FF2552678545D008851D4 /* LaunchScreen.storyboard */; };
 		AC4FF26526785FFB008851D4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC4FF26426785FFB008851D4 /* GoogleService-Info.plist */; };
 		AC4FF27C267870EE008851D4 /* RegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF27B267870EE008851D4 /* RegistroViewController.swift */; };
+		AC63329326830F8E00DA956D /* LugarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC63329226830F8E00DA956D /* LugarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		AC4FF2582678545D008851D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC4FF26426785FFB008851D4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC4FF27B267870EE008851D4 /* RegistroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewController.swift; sourceTree = "<group>"; };
+		AC63329226830F8E00DA956D /* LugarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LugarViewController.swift; sourceTree = "<group>"; };
 		C5FCA6B24595E76732C1897B /* Pods-Naturapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naturapp.release.xcconfig"; path = "Target Support Files/Pods-Naturapp/Pods-Naturapp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +101,7 @@
 				AC441D1B267EB519001BF8A0 /* MyCollectionViewCell.xib */,
 				AC441D1F267EC62A001BF8A0 /* CompartirViewController.swift */,
 				AC441D22267ECC00001BF8A0 /* Lugar.swift */,
+				AC63329226830F8E00DA956D /* LugarViewController.swift */,
 			);
 			path = Naturapp;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				AC441D1C267EB519001BF8A0 /* MyCollectionViewCell.swift in Sources */,
 				AC4FF24B2678545C008851D4 /* AppDelegate.swift in Sources */,
 				AC441D18267E9C50001BF8A0 /* InicioViewController.swift in Sources */,
+				AC63329326830F8E00DA956D /* LugarViewController.swift in Sources */,
 				AC4FF24D2678545C008851D4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

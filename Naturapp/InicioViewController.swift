@@ -15,6 +15,8 @@ class InicioViewController: UIViewController {
     var lugares = [Lugar]()
     //Outlets del storyboard
     @IBOutlet weak var collectionView: UICollectionView!
+    //Variable a mandar en el segue
+    var lugarActual: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,13 +80,21 @@ class InicioViewController: UIViewController {
     }
 }
 
+//Saber donde hago click en el dash
 extension InicioViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        print("Clicked here!")
+        lugarActual = lugares[indexPath.row].nombre
+        performSegue(withIdentifier: "lugar", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "lugar" {
+            let destino = segue.destination as! LugarViewController
+            destino.nombre = lugarActual
+        }
     }
 }
-
+//Datasource del carrusel
 extension InicioViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return lugares.count
