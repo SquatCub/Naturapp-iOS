@@ -42,7 +42,6 @@ class LugarViewController: UIViewController {
     
     func getData() {
         let docRef = db.collection("lugares").document(nombre!)
-
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let dataDescription = document.data()
@@ -58,6 +57,8 @@ class LugarViewController: UIViewController {
                         if let image = UIImage(data: data) {
                             DispatchQueue.main.async {
                                 self?.image.image = image
+                                self?.image.contentMode = .scaleAspectFill
+                                self?.image.layer.cornerRadius = 5
                             }
                         }
                     }
@@ -77,7 +78,15 @@ class LugarViewController: UIViewController {
         let region = MKCoordinateRegion(center: localizacion, span: spanMapa)
         // Se establecen los parametros para agregat la region y para mostrarla
         mapMK.setRegion(region, animated: true)
+        let anotacion = MKPointAnnotation()
+        anotacion.coordinate = region.center
+        anotacion.title = lugar
+        self.mapMK.addAnnotation(anotacion)
         mapMK.showsUserLocation = true
+    }
+    @IBAction func openMap(_ sender: UIBarButtonItem) {
+        let url = URL(string:"http://maps.apple.com/?daddr=\(latitud!),\(longitud!)")
+            UIApplication.shared.open(url!)
     }
 }
 // Extension del ViewController donde estan los delegados de la ubicacion y de la barra de busqueda

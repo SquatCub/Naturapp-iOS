@@ -119,7 +119,8 @@ extension CompartirViewController: UIImagePickerControllerDelegate, UINavigation
         //Que se hara cuando el usuario selecciona alguna imagen
         if let imagenSeleccionada = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
             image.image = imagenSeleccionada
-            image.layer.cornerRadius = 50
+            image.contentMode = .scaleAspectFill
+            image.layer.cornerRadius = 10
         }
         picker.dismiss(animated: true, completion: nil)
     }

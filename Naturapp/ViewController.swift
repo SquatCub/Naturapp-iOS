@@ -76,10 +76,10 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
     
     //Metodos para el carrusel
     func numberOfItems(in carousel: iCarousel) -> Int {
-        return 3
+        return 5
     }
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 100))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 270, height: 100))
         let imageView = UIImageView(frame: view.bounds)
         view.addSubview(imageView)
         imageView.contentMode = .scaleToFill
