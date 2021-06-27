@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 
 class InicioViewController: UIViewController {
     //Base de datos
@@ -31,6 +32,7 @@ class InicioViewController: UIViewController {
     }
 
     @IBAction func cerrarSesion(_ sender: UIButton) {
+        GIDSignIn.sharedInstance()?.signOut()
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()

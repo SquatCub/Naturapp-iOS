@@ -8,7 +8,7 @@
 import UIKit
 import iCarousel
 import FirebaseAuth
-
+import GoogleSignIn
 class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
     
     //Inicializacion del carrusel
@@ -26,6 +26,8 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //Se agrega el carrusel a la vista principal
+        GIDSignIn.sharedInstance().presentingViewController = self
+        GIDSignIn.sharedInstance().delegate = self
         view.addSubview(myCarousel)
         myCarousel.dataSource = self
         myCarousel.delegate = self
@@ -105,5 +107,25 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
+    }
+    @IBAction func googleButton(_ sender: UIButton) {
+        GIDSignIn.sharedInstance()?.signIn()
+    }
+}
+
+extension ViewController: GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if error == nil && user.authentication != nil {
+            let credential = GoogleAuthProvider.credential(withIDToken: user.authentication.idToken, accessToken: user.authentication.accessToken)
+            Auth.auth().signIn(with: credential) { (authResult, error) in
+                if let result = authResult, error == nil {
+                    print("Sesion iniciada con gugul")
+                    self.performSegue(withIdentifier: "login", sender: self)
+                } else {
+                    print("Error")
+                }
+                
+            }
+        }
     }
 }

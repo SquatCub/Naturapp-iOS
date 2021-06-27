@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="51" translatesAutoresizingMaskIntoConstraints="NO" id="NGa-49-hX0">
-                                <rect key="frame" x="30" y="396" width="315" height="341.5"/>
+                                <rect key="frame" x="30" y="396" width="315" height="364.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="k0P-Bu-KHQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="315" height="233"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="256"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="EwH-SO-KAl">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="103"/>
@@ -38,38 +38,69 @@
                                                     </textField>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8h-gB-x5D">
-                                                <rect key="frame" x="0.0" y="138" width="315" height="40"/>
-                                                <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="LoI-tf-Cca">
+                                                <rect key="frame" x="0.0" y="138" width="315" height="118"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8h-gB-x5D">
+                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="40"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="tr1-yN-Byo"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <state key="normal" title="Iniciar Sesión">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IYm-Ff-zxn"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36b-v8-8fh">
+                                                        <rect key="frame" x="0.0" y="49" width="315" height="40"/>
+                                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="LaJ-xh-uHE"/>
+                                                        </constraints>
+                                                        <state key="normal" title="  Continuar con Google" image="google">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="googleButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fLu-Dh-dcJ"/>
+                                                        </connections>
+                                                    </button>
+                                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="cNG-Pr-HO7">
+                                                        <rect key="frame" x="147.5" y="98" width="20" height="20"/>
+                                                    </activityIndicatorView>
+                                                </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="tr1-yN-Byo"/>
+                                                    <constraint firstItem="36b-v8-8fh" firstAttribute="leading" secondItem="LoI-tf-Cca" secondAttribute="leading" id="BrT-8Q-9CE"/>
+                                                    <constraint firstAttribute="trailing" secondItem="K8h-gB-x5D" secondAttribute="trailing" id="Gdr-zC-6fd"/>
+                                                    <constraint firstAttribute="trailing" secondItem="36b-v8-8fh" secondAttribute="trailing" id="p1e-iu-eqI"/>
+                                                    <constraint firstItem="K8h-gB-x5D" firstAttribute="leading" secondItem="LoI-tf-Cca" secondAttribute="leading" id="qbu-LH-RoW"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="Iniciar Sesión">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IYm-Ff-zxn"/>
-                                                </connections>
-                                            </button>
-                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="cNG-Pr-HO7">
-                                                <rect key="frame" x="147.5" y="213" width="20" height="20"/>
-                                            </activityIndicatorView>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="K8h-gB-x5D" firstAttribute="leading" secondItem="k0P-Bu-KHQ" secondAttribute="leading" id="Wqw-fq-tmA"/>
+                                            <constraint firstItem="LoI-tf-Cca" firstAttribute="leading" secondItem="k0P-Bu-KHQ" secondAttribute="leading" id="Gsn-eN-Y0I"/>
+                                            <constraint firstItem="LoI-tf-Cca" firstAttribute="top" secondItem="EwH-SO-KAl" secondAttribute="bottom" constant="40" id="RST-Jl-Kgg"/>
+                                            <constraint firstAttribute="bottom" secondItem="LoI-tf-Cca" secondAttribute="bottom" id="VIu-Gd-Joh"/>
                                             <constraint firstItem="EwH-SO-KAl" firstAttribute="leading" secondItem="k0P-Bu-KHQ" secondAttribute="leading" id="bPy-Fy-n8r"/>
                                             <constraint firstAttribute="trailing" secondItem="EwH-SO-KAl" secondAttribute="trailing" id="cab-ds-tmL"/>
-                                            <constraint firstAttribute="trailing" secondItem="K8h-gB-x5D" secondAttribute="trailing" id="dz3-LW-cnr"/>
+                                            <constraint firstAttribute="trailing" secondItem="LoI-tf-Cca" secondAttribute="trailing" id="uFd-ht-AGj"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7PA-NG-b6G">
-                                        <rect key="frame" x="91.5" y="284" width="132" height="57.5"/>
+                                        <rect key="frame" x="91.5" y="307" width="132" height="57.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿No tienes una cuenta?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIg-wQ-8OV">
                                                 <rect key="frame" x="0.0" y="0.0" width="132" height="14.5"/>
@@ -139,7 +170,7 @@
                         <outlet property="contraseñaTextField" destination="iHJ-FP-8tp" id="PdX-Yx-fOk"/>
                         <outlet property="correoTextField" destination="MKe-PO-epo" id="8FV-Q1-oDJ"/>
                         <outlet property="indicator" destination="cNG-Pr-HO7" id="b4c-kN-QEk"/>
-                        <segue destination="5qN-Zd-8NP" kind="show" identifier="login" id="qM9-aZ-qqh"/>
+                        <segue destination="5qN-Zd-8NP" kind="show" identifier="login" id="U37-es-fr0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -155,7 +186,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Q17-eG-A3X">
-                                <rect key="frame" x="10" y="96" width="355" height="571"/>
+                                <rect key="frame" x="10" y="0.0" width="355" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NyY-bx-7FJ">
                                     <size key="itemSize" width="128" height="128"/>
@@ -217,11 +248,11 @@
             <objects>
                 <viewController id="Q2Z-gT-nqE" customClass="CompartirViewController" customModule="Naturapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2r4-32-ljI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="pbq-3N-Y58">
-                                <rect key="frame" x="30" y="106" width="315" height="409"/>
+                                <rect key="frame" x="30" y="10" width="315" height="409"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="Dhf-pt-mA3">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="217"/>
@@ -296,11 +327,11 @@
             <objects>
                 <viewController id="b44-7c-L2J" customClass="LugarViewController" customModule="Naturapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="83f-8E-3TX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="980"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="574-1Q-M92">
-                                <rect key="frame" x="0.0" y="96" width="375" height="904"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="980"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CIK-YC-De8" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
@@ -601,10 +632,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qM9-aZ-qqh"/>
+        <segue reference="OzP-h2-5tL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="banner" width="1000" height="273"/>
+        <image name="google" width="25" height="25"/>
         <image name="questionmark.square" catalog="system" width="128" height="114"/>
         <image name="title" width="636" height="300"/>
         <systemColor name="secondaryLabelColor">
@@ -612,6 +644,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

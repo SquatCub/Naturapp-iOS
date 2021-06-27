@@ -136,6 +136,7 @@
 				AC4FF2442678545C008851D4 /* Frameworks */,
 				AC4FF2452678545C008851D4 /* Resources */,
 				AA8F26ED0CCFE0EA86659916 /* [CP] Embed Pods Frameworks */,
+				A554516A461CDF66290C088F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -194,6 +195,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		A554516A461CDF66290C088F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Naturapp/Pods-Naturapp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Naturapp/Pods-Naturapp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Naturapp/Pods-Naturapp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AA8F26ED0CCFE0EA86659916 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
