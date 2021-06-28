@@ -37,7 +37,7 @@ class OnBoardingViewController: UIViewController {
         diapositivas = [
             OnBoardingSlide(titulo: "Bienvenido a Naturapp", descripcion: "Aquí podrás encontrar y compartir lugares increíbles", imagen: #imageLiteral(resourceName: "title")),
             OnBoardingSlide(titulo: "Descubre", descripcion: "Encuentra lugares cerca o lejos de ti", imagen: #imageLiteral(resourceName: "img2")),
-            OnBoardingSlide(titulo: "Comparte", descripcion: "Comparte ese lago, bosque o vereda para que todos puedan descubrirlo", imagen: #imageLiteral(resourceName: "img3")),
+            OnBoardingSlide(titulo: "Comparte", descripcion: "Comparte ese lago, bosque o sendero para que todos puedan descubrirlo", imagen: #imageLiteral(resourceName: "img3")),
             OnBoardingSlide(titulo: "Conoce", descripcion: "Puedes ver la ubicación de cualquier lugar, así como el clima actual", imagen: #imageLiteral(resourceName: "img5")),
             OnBoardingSlide(titulo: "Empieza a explorar", descripcion: "Necesitarás estar registrado y permitir acceso a tu ubicación para compartir lugares", imagen: #imageLiteral(resourceName: "title"))
         ]
