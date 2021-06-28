@@ -30,18 +30,6 @@ class InicioViewController: UIViewController {
         initialSetup()
         // Do any additional setup after loading the view.
     }
-
-    @IBAction func cerrarSesion(_ sender: UIButton) {
-        GIDSignIn.sharedInstance()?.signOut()
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            print("Sesion cerrada")
-            navigationController?.popToRootViewController(animated: true)
-        } catch let signOutError as NSError {
-            print("Error al salir ", signOutError)
-        }
-    }
     
     func initialSetup() {
         navigationController?.isNavigationBarHidden = false

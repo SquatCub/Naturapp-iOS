@@ -110,6 +110,7 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
         navigationController?.isNavigationBarHidden = true
     }
     @IBAction func googleButton(_ sender: UIButton) {
+        indicator.startAnimating()
         GIDSignIn.sharedInstance()?.signIn()
     }
 }
@@ -122,11 +123,13 @@ extension ViewController: GIDSignInDelegate {
                 if let result = authResult, error == nil {
                     print("Sesion iniciada con gugul")
                     self.performSegue(withIdentifier: "login", sender: self)
+                    self.indicator.stopAnimating()
                 } else {
                     print("Error")
                 }
                 
             }
         }
+        self.indicator.stopAnimating()
     }
 }
