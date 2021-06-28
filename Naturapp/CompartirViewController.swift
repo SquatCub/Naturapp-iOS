@@ -16,6 +16,7 @@ class CompartirViewController: UIViewController {
     //Outlets del storyboard
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var nombreLabel: UITextField!
+    @IBOutlet weak var descripcionLabel: UITextView!
     
     // Manager para usar el GPS
     var manager = CLLocationManager()
@@ -29,7 +30,8 @@ class CompartirViewController: UIViewController {
         //Inicializa la gestura de la imagen
         initializeImage()
         
-        
+        descripcionLabel.layer.borderWidth = 1
+        descripcionLabel.layer.borderColor = CGColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
     }
     
     
@@ -59,7 +61,7 @@ class CompartirViewController: UIViewController {
                 //Subir a Firestore
                 let dataReferencia = Firestore.firestore().collection("lugares").document(nombre)
                 let urlString = url.absoluteString
-                let datosEnviar = ["imagen": urlString, "nombre": nombre, "latitud": "\(self.latitud!)", "longitud": "\(self.longitud!)"]
+                let datosEnviar = ["imagen": urlString, "nombre": nombre, "descripcion": self.descripcionLabel.text ?? "", "latitud": "\(self.latitud!)", "longitud": "\(self.longitud!)"] as [String : Any]
                 
                 dataReferencia.setData(datosEnviar) { (error) in
                     if let err = error {

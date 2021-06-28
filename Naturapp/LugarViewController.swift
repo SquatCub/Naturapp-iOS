@@ -26,6 +26,9 @@ class LugarViewController: UIViewController {
     //Outlets del storyboard
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var mapMK: MKMapView!
+    @IBOutlet weak var descripcionLabel: UILabel!
+    
+    
     // Manager para usar el GPS
     var manager = CLLocationManager()
     
@@ -45,7 +48,9 @@ class LugarViewController: UIViewController {
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let dataDescription = document.data()
-                self.lugar = "\(dataDescription!["nombre"] ?? "SIN NOMBRE")"
+                self.lugar = "\(dataDescription!["nombre"] ?? "Sin nombre")"
+                self.descripcionLabel.text = "\(dataDescription!["descripcion"] ?? "No hay descripción disponible")"
+
                 self.latitud = Float(dataDescription!["latitud"] as! Substring)
                 self.longitud = Float(dataDescription!["longitud"] as! Substring)
                 let urlString = dataDescription!["imagen"] as? String
@@ -84,10 +89,12 @@ class LugarViewController: UIViewController {
         self.mapMK.addAnnotation(anotacion)
         mapMK.showsUserLocation = true
     }
-    @IBAction func openMap(_ sender: UIBarButtonItem) {
+    @IBAction func openMap(_ sender: UIButton) {
         let url = URL(string:"http://maps.apple.com/?daddr=\(latitud!),\(longitud!)")
             UIApplication.shared.open(url!)
+
     }
+    
 }
 // Extension del ViewController donde estan los delegados de la ubicacion y de la barra de busqueda
 extension LugarViewController: CLLocationManagerDelegate, UISearchBarDelegate, MKMapViewDelegate {

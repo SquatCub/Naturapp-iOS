@@ -9,6 +9,7 @@ import UIKit
 import iCarousel
 import FirebaseAuth
 import GoogleSignIn
+
 class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
     
     //Inicializacion del carrusel
