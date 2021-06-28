@@ -8,13 +8,13 @@
 import UIKit
 
 class SlideCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var imagen: UIImageView!
-    @IBOutlet weak var titulo: UILabel!
-    @IBOutlet weak var descripcion: UILabel!
+    @IBOutlet weak var imagenDiapositivaIV: UIImageView!
+    @IBOutlet weak var tituloDiapositivaLbl: UILabel!
+    @IBOutlet weak var descripcionDiapositivaLbl: UILabel!
     
     func configurar(slide: OnBoardingSlide) {
-        imagen.image = slide.imagen
-        titulo.text = slide.titulo
-        descripcion.text = slide.descripcion
+        imagenDiapositivaIV.image = slide.imagen
+        tituloDiapositivaLbl.text = slide.titulo
+        descripcionDiapositivaLbl.text = slide.descripcion
     }
 }
