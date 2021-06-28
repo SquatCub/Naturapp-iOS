@@ -22,6 +22,9 @@
 		AC4FF26526785FFB008851D4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC4FF26426785FFB008851D4 /* GoogleService-Info.plist */; };
 		AC4FF27C267870EE008851D4 /* RegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF27B267870EE008851D4 /* RegistroViewController.swift */; };
 		AC63329326830F8E00DA956D /* LugarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC63329226830F8E00DA956D /* LugarViewController.swift */; };
+		AC8D3A7226897A7F00A76CCD /* ClimaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8D3A7126897A7F00A76CCD /* ClimaManager.swift */; };
+		AC8D3A7626897ADE00A76CCD /* ClimaModelo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8D3A7526897ADE00A76CCD /* ClimaModelo.swift */; };
+		AC8D3A7926897B2D00A76CCD /* ClimaDatos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8D3A7826897B2D00A76CCD /* ClimaDatos.swift */; };
 		ACC4895426856CF200720093 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC4895326856CF200720093 /* OnBoardingViewController.swift */; };
 		ACC4895F2685714200720093 /* OnBoardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC4895E2685714200720093 /* OnBoardingSlide.swift */; };
 		ACC489622685736500720093 /* SlideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC489612685736500720093 /* SlideCollectionViewCell.swift */; };
@@ -46,6 +49,9 @@
 		AC4FF26426785FFB008851D4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC4FF27B267870EE008851D4 /* RegistroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewController.swift; sourceTree = "<group>"; };
 		AC63329226830F8E00DA956D /* LugarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LugarViewController.swift; sourceTree = "<group>"; };
+		AC8D3A7126897A7F00A76CCD /* ClimaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimaManager.swift; sourceTree = "<group>"; };
+		AC8D3A7526897ADE00A76CCD /* ClimaModelo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimaModelo.swift; sourceTree = "<group>"; };
+		AC8D3A7826897B2D00A76CCD /* ClimaDatos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimaDatos.swift; sourceTree = "<group>"; };
 		ACC4895326856CF200720093 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		ACC4895E2685714200720093 /* OnBoardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingSlide.swift; sourceTree = "<group>"; };
 		ACC489612685736500720093 /* SlideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -93,26 +99,53 @@
 		AC4FF2492678545C008851D4 /* Naturapp */ = {
 			isa = PBXGroup;
 			children = (
+				AC8D3A7D2689857500A76CCD /* Onboarding */,
+				AC8D3A7B268984F600A76CCD /* Controladores */,
+				AC8D3A7026897A5E00A76CCD /*  API */,
 				AC4FF26426785FFB008851D4 /* GoogleService-Info.plist */,
 				AC4FF24A2678545C008851D4 /* AppDelegate.swift */,
 				AC4FF24C2678545C008851D4 /* SceneDelegate.swift */,
-				AC4FF24E2678545C008851D4 /* ViewController.swift */,
 				AC4FF2502678545C008851D4 /* Main.storyboard */,
 				AC4FF2532678545D008851D4 /* Assets.xcassets */,
 				AC4FF2552678545D008851D4 /* LaunchScreen.storyboard */,
 				AC4FF2582678545D008851D4 /* Info.plist */,
-				AC4FF27B267870EE008851D4 /* RegistroViewController.swift */,
-				AC441D17267E9C50001BF8A0 /* InicioViewController.swift */,
 				AC441D1A267EB519001BF8A0 /* MyCollectionViewCell.swift */,
 				AC441D1B267EB519001BF8A0 /* MyCollectionViewCell.xib */,
-				AC441D1F267EC62A001BF8A0 /* CompartirViewController.swift */,
 				AC441D22267ECC00001BF8A0 /* Lugar.swift */,
-				AC63329226830F8E00DA956D /* LugarViewController.swift */,
-				ACC4895326856CF200720093 /* OnBoardingViewController.swift */,
-				ACC4895E2685714200720093 /* OnBoardingSlide.swift */,
-				ACC489612685736500720093 /* SlideCollectionViewCell.swift */,
 			);
 			path = Naturapp;
+			sourceTree = "<group>";
+		};
+		AC8D3A7026897A5E00A76CCD /*  API */ = {
+			isa = PBXGroup;
+			children = (
+				AC8D3A7126897A7F00A76CCD /* ClimaManager.swift */,
+				AC8D3A7526897ADE00A76CCD /* ClimaModelo.swift */,
+				AC8D3A7826897B2D00A76CCD /* ClimaDatos.swift */,
+			);
+			path = " API";
+			sourceTree = "<group>";
+		};
+		AC8D3A7B268984F600A76CCD /* Controladores */ = {
+			isa = PBXGroup;
+			children = (
+				AC63329226830F8E00DA956D /* LugarViewController.swift */,
+				AC441D1F267EC62A001BF8A0 /* CompartirViewController.swift */,
+				AC441D17267E9C50001BF8A0 /* InicioViewController.swift */,
+				AC4FF27B267870EE008851D4 /* RegistroViewController.swift */,
+				AC4FF24E2678545C008851D4 /* ViewController.swift */,
+			);
+			path = Controladores;
+			sourceTree = "<group>";
+		};
+		AC8D3A7D2689857500A76CCD /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				ACC489612685736500720093 /* SlideCollectionViewCell.swift */,
+				ACC4895E2685714200720093 /* OnBoardingSlide.swift */,
+				ACC4895326856CF200720093 /* OnBoardingViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		B45F3CF518DE384A15DA5714 /* Pods */ = {
@@ -258,8 +291,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC8D3A7226897A7F00A76CCD /* ClimaManager.swift in Sources */,
 				AC441D20267EC62A001BF8A0 /* CompartirViewController.swift in Sources */,
 				AC441D23267ECC00001BF8A0 /* Lugar.swift in Sources */,
+				AC8D3A7926897B2D00A76CCD /* ClimaDatos.swift in Sources */,
 				AC4FF24F2678545C008851D4 /* ViewController.swift in Sources */,
 				AC4FF27C267870EE008851D4 /* RegistroViewController.swift in Sources */,
 				ACC489622685736500720093 /* SlideCollectionViewCell.swift in Sources */,
@@ -269,6 +304,7 @@
 				AC441D18267E9C50001BF8A0 /* InicioViewController.swift in Sources */,
 				AC63329326830F8E00DA956D /* LugarViewController.swift in Sources */,
 				AC4FF24D2678545C008851D4 /* SceneDelegate.swift in Sources */,
+				AC8D3A7626897ADE00A76CCD /* ClimaModelo.swift in Sources */,
 				ACC4895426856CF200720093 /* OnBoardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

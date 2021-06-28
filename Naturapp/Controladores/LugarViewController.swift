@@ -12,7 +12,8 @@ import FirebaseStorage
 import CoreLocation
 import MapKit
 
-class LugarViewController: UIViewController {
+class LugarViewController: UIViewController, ClimaManagerDelegado {
+    
     //Base de datos
     let db = Firestore.firestore()
     //Variable del segue
@@ -26,12 +27,23 @@ class LugarViewController: UIViewController {
     //Outlets del storyboard
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var mapMK: MKMapView!
+    @IBOutlet weak var descTitulo: UILabel!
     @IBOutlet weak var descripcionLabel: UILabel!
+    @IBOutlet weak var climaTitulo: UILabel!
+    @IBOutlet weak var ubicacionTitulo: UILabel!
+    
+    //Outlets para api clima
+    @IBOutlet weak var climaImage: UIImageView!
+    @IBOutlet weak var descClima: UILabel!
+    @IBOutlet weak var gradosClima: UILabel!
+    @IBOutlet weak var vistaContent: UIView!
+    @IBOutlet weak var climaStack: UIStackView!
     
     
     // Manager para usar el GPS
     var manager = CLLocationManager()
-    
+    //Manager Clima
+    var climaManager = ClimaManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +51,9 @@ class LugarViewController: UIViewController {
         
         
         mapMK.delegate = self
+        //Establecer esta clase como el delegado del ClimaManager
+        climaManager.delegado = self
+
         
         getData()
     }
@@ -57,6 +72,7 @@ class LugarViewController: UIViewController {
                 let url = URL(string: urlString!)
                 self.lat = CLLocationDegrees(self.latitud!)
                 self.lon = CLLocationDegrees(self.longitud!)
+                self.climaManager.buscarClimaGps(lat: self.lat!, lon: self.lon!)
                 DispatchQueue.main.async { [weak self] in
                     if let data = try? Data(contentsOf: url!) {
                         if let image = UIImage(data: data) {
@@ -94,78 +110,64 @@ class LugarViewController: UIViewController {
             UIApplication.shared.open(url!)
 
     }
+    // Recibo de datos desde el manager
+    func actualizarClima(clima: ClimaModelo) {
+        DispatchQueue.main.async {
+            self.gradosClima.text = clima.tempString+"º C"
+            self.descClima.text = clima.desc.capitalizingFirstLetter()
+            let imgURL = "https://openweathermap.org/img/wn/\(clima.icon)@4x.png"
+            self.cargarImagen(urlString: imgURL)
+            if clima.time == "n" {
+                self.climaStack.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                self.climaTitulo.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                self.gradosClima.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                self.descClima.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            } else {
+                self.climaStack.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+                self.climaTitulo.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                self.gradosClima.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                self.descClima.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            }
+        }
+    }
+    //Imagenes del clima dinamicas
+    func cargarImagen(urlString: String) {
+            //1.- Obtener los datos
+            guard let url = URL(string: urlString) else {
+                return
+            }
+            let tareaObtenerDatos = URLSession.shared.dataTask(with: url) { (datos, _, error) in
+                guard let datosSeguros = datos, error == nil else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    //2.- Convertir los datos en imagen
+                    let imagen = UIImage(data: datosSeguros)
+                    //3.- Asignar la imagen a la imagen previamente creada
+                    self.climaImage.image = imagen
+                }
+            }
+            tareaObtenerDatos.resume()
+    }
+    // En caso de error
+    func errorClima() {
+        DispatchQueue.main.async {
+            self.descClima.text = "No se encontro la ciudad"
+        }
+    }
+
+
     
 }
 // Extension del ViewController donde estan los delegados de la ubicacion y de la barra de busqueda
 extension LugarViewController: CLLocationManagerDelegate, UISearchBarDelegate, MKMapViewDelegate {
-    /*// Funcion para obtener las coordenadas del usuario
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // Variable segura en caso de no tener permisos no crashe la app
-        guard let ubicacion = locations.first else {
-            return
-        }
+}
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
     }
-    // En caso de error o no tener permisos
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Error al obtener la ubicacion \(error)")
-    }
-    // Funcion que se activa cuando se envia el contenido de la SearchBar
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-       // Convierte coordenadas en algo amigable al usuario, servira para añadir puntos al mapa
-       let geocoder = CLGeocoder()
-        // En caso de tener algo en la barra de busque
-    }
-    
-    func trazarRuta(coordenadasDestino: CLLocationCoordinate2D) {
-        guard let coordenadasOrigen = manager.location?.coordinate else {
-            return
-        }
-        // Crear lugar de origen-destino
-        let origenPlaceMark = MKPlacemark(coordinate: coordenadasOrigen)
-        let destinoPlaceMark = MKPlacemark(coordinate: coordenadasDestino)
 
-        // Crear objeto mapkit item
-        let origenItem = MKMapItem(placemark: origenPlaceMark)
-        let destinoItem = MKMapItem(placemark: destinoPlaceMark)
-        
-        // Solicitud de ruta
-        let solicitudDestino = MKDirections.Request()
-        solicitudDestino.source = origenItem
-        solicitudDestino.destination = destinoItem
-        // Definir como se va a viajar
-        solicitudDestino.transportType = .automobile
-        solicitudDestino.requestsAlternateRoutes = true
-        
-        let direcciones = MKDirections(request: solicitudDestino)
-        direcciones.calculate { (respuesta, error) in
-            // Desenvolver la respuesta
-            guard let respuestaSegura = respuesta else {
-                if let error = error {
-                    print("Error al calcular la ruta \(error.localizedDescription)")
-                }
-                return
-            }
-            // Si success
-            //Obtenemos las rutas trazadas y las eliminamos
-            let overlay = self.mapMK.overlays
-            self.mapMK.removeOverlays(overlay)
-            //Obtenemos la nueva ruta
-            let ruta = respuestaSegura.routes[0]
-            // Agregar superposicion
-            self.mapMK.addOverlay(ruta.polyline)
-            self.mapMK.setVisibleMapRect(ruta.polyline.boundingMapRect, animated: true)
-            let distancia = ruta.distance/1000
-            // Alerta para mostrar la distancia
-            let alerta = UIAlertController(title: "Distancia", message: "La distancia es de \(distancia) KM", preferredStyle: .alert)
-            let accionAceptar = UIAlertAction(title: "Aceptar", style: .default, handler: nil)
-            alerta.addAction(accionAceptar)
-            self.present(alerta, animated: true)
-        }
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
     }
-    
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        let renderizado = MKPolylineRenderer(overlay: overlay as! MKPolyline)
-        renderizado.strokeColor = .white
-        return renderizado
-    }*/
 }
