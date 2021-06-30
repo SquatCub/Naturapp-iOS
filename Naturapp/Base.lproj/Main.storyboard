@@ -234,27 +234,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="pbq-3N-Y58">
-                                <rect key="frame" x="30" y="106" width="315" height="480.5"/>
+                                <rect key="frame" x="30" y="106" width="315" height="496.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="Dhf-pt-mA3">
-                                        <rect key="frame" x="0.0" y="0.0" width="315" height="217"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="233"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionmark.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="AaJ-iq-dVe">
-                                                <rect key="frame" x="0.0" y="1" width="315" height="147.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="150" id="2Y7-CN-iWe"/>
-                                                    <constraint firstAttribute="width" constant="60" id="z53-ff-IqO"/>
-                                                </constraints>
-                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="e8x-T6-M5w">
+                                                <rect key="frame" x="0.0" y="0.0" width="315" height="166"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="preview" translatesAutoresizingMaskIntoConstraints="NO" id="AaJ-iq-dVe">
+                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="150"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="150" id="2Y7-CN-iWe"/>
+                                                            <constraint firstAttribute="width" constant="60" id="z53-ff-IqO"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecciona una imagen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDd-cs-oo9">
+                                                        <rect key="frame" x="0.0" y="150" width="315" height="16"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre del lugar" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sz0-gE-Rp5">
-                                                <rect key="frame" x="0.0" y="183" width="315" height="34"/>
+                                                <rect key="frame" x="0.0" y="199" width="315" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xtW-up-SBK">
-                                        <rect key="frame" x="0.0" y="250" width="315" height="157.5"/>
+                                        <rect key="frame" x="0.0" y="266" width="315" height="157.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descripción del lugar:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvq-J5-eTe">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="19.5"/>
@@ -287,7 +298,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69r-Ok-tVJ">
-                                        <rect key="frame" x="117.5" y="440.5" width="80" height="40"/>
+                                        <rect key="frame" x="117.5" y="456.5" width="80" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="9hU-S1-Xyx"/>
@@ -757,7 +768,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="xYu-Kp-DIS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mOx-aD-dQO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="zBY-rG-dTz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="MDC-R9-Tia"/>
@@ -772,6 +782,7 @@
                         <segue destination="Bmj-1d-pnG" kind="relationship" relationship="viewControllers" id="FBr-DM-NSq"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mOx-aD-dQO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2703.1999999999998" y="46.326836581709152"/>
         </scene>
@@ -903,7 +914,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="U37-es-fr0"/>
+        <segue reference="OzP-h2-5tL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="banner" width="1000" height="273"/>
@@ -911,7 +922,7 @@
         <image name="location.fill" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="questionmark.square" catalog="system" width="128" height="114"/>
+        <image name="preview" width="256" height="256"/>
         <image name="title" width="636" height="300"/>
         <image name="xmark.icloud.fill" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">

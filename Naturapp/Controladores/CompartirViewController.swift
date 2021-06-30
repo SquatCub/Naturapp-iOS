@@ -72,7 +72,9 @@ class CompartirViewController: UIViewController {
                         let accionAceptar = UIAlertAction(title: "Aceptar", style: .default)
                         alerta.addAction(accionAceptar)
                         self.present(alerta, animated: true, completion: nil)
-                        
+                        self.nombreLabel.text = ""
+                        self.descripcionLabel.text = ""
+                        self.image.image = #imageLiteral(resourceName: "preview")
                         print("Se guardo correctamente en FS")
                     }
                 }
@@ -109,9 +111,6 @@ class CompartirViewController: UIViewController {
         vc.delegate = self
         vc.allowsEditing = true
         present(vc, animated: true, completion: nil)
-    }
-    @IBAction func test(_ sender: UIButton) {
-        print("\(latitud) y \(longitud)")
     }
 }
 

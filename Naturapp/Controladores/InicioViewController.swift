@@ -34,6 +34,7 @@ class InicioViewController: UIViewController {
     func initialSetup() {
         navigationController?.isNavigationBarHidden = false
         navigationItem.hidesBackButton = true
+        saveSession()
         cargarLugares()
     }
     
@@ -63,6 +64,13 @@ class InicioViewController: UIViewController {
                     }
                 }
             }
+        }
+    }
+    func saveSession() {
+        if let email = Auth.auth().currentUser?.email {
+            let session = UserDefaults.standard
+            session.setValue(email, forKey: "email")
+            session.synchronize()
         }
     }
     override func viewWillAppear(_ animated: Bool) {

@@ -26,6 +26,8 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        checkSession()
         //Se agrega el carrusel a la vista principal
         GIDSignIn.sharedInstance().presentingViewController = self
         GIDSignIn.sharedInstance().delegate = self
@@ -106,6 +108,13 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
         correoTextField.layer.addSublayer(bottomLine)
         contraseñaTextField.layer.addSublayer(bottomLine2)
     }
+    func checkSession() {
+        let session = UserDefaults.standard
+        if let email = session.value(forKey: "email") as? String {
+            performSegue(withIdentifier: "login", sender: self)
+        }
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
     }

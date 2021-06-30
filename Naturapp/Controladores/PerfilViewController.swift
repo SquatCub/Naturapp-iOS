@@ -23,6 +23,10 @@ class PerfilViewController: UIViewController {
             try firebaseAuth.signOut()
             print("Sesion cerrada")
             //navigationController?.popToRootViewController(animated: true)
+            let session = UserDefaults.standard
+            session.removeObject(forKey: "email")
+            session.synchronize()
+            
             let vc = storyboard?.instantiateViewController(identifier: "HOME") as! UIViewController
             vc.modalPresentationStyle = .fullScreen
             vc.modalTransitionStyle = .crossDissolve
