@@ -24,6 +24,7 @@ class LugarViewController: UIViewController, ClimaManagerDelegado {
     var longitud: Float?
     var lat: CLLocationDegrees?
     var lon: CLLocationDegrees?
+    var comentarios = [Comentario]()
     //Outlets del storyboard
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var mapMK: MKMapView!
@@ -31,6 +32,9 @@ class LugarViewController: UIViewController, ClimaManagerDelegado {
     @IBOutlet weak var descripcionLabel: UILabel!
     @IBOutlet weak var climaTitulo: UILabel!
     @IBOutlet weak var ubicacionTitulo: UILabel!
+    @IBOutlet weak var comentarioField: UITextField!
+    @IBOutlet weak var comentariosTable: UITableView!
+    @IBOutlet weak var categoriaLabel: UILabel!
     
     //Outlets para api clima
     @IBOutlet weak var climaImage: UIImageView!
@@ -56,6 +60,7 @@ class LugarViewController: UIViewController, ClimaManagerDelegado {
 
         
         getData()
+        cargarComentarios()
     }
     
     func getData() {
@@ -65,7 +70,7 @@ class LugarViewController: UIViewController, ClimaManagerDelegado {
                 let dataDescription = document.data()
                 self.lugar = "\(dataDescription!["nombre"] ?? "Sin nombre")"
                 self.descripcionLabel.text = "\(dataDescription!["descripcion"] ?? "No hay descripción disponible")"
-
+                self.categoriaLabel.text = "\(dataDescription!["categoria"] ?? "Sin categoria")"
                 self.latitud = Float(dataDescription!["latitud"] as! Substring)
                 self.longitud = Float(dataDescription!["longitud"] as! Substring)
                 let urlString = dataDescription!["imagen"] as? String
@@ -155,7 +160,58 @@ class LugarViewController: UIViewController, ClimaManagerDelegado {
             self.descClima.text = "No se encontro la ciudad"
         }
     }
+    
+    func cargarComentarios() {
+        db.collection("lugares").document(nombre!).collection("comentarios").addSnapshotListener() { (querySnapshot, err) in
+            //Vaciar arreglo de chats
+            self.comentarios = []
+            if let e = err {
+                print("Error al obtener datos \(e.localizedDescription)")
+            } else {
+                if let snapshotDocumentos = querySnapshot?.documents {
+                    for document in snapshotDocumentos {
+                        print("\(document.data())")
+                        //Crear objeto Mensaje
+                        let datos = document.data()
+                        //Obtener parametros
+                        guard let contenido = datos["comentario"] as? String else { return }
+                        guard let usuario = datos["usuario"] as? String else { return }
+                        
+                        
+                        //Crear objeto y agregarlo al arreglo
+                        let nuevoComentario = Comentario(comentario: contenido, usuario: usuario)
+                        self.comentarios.append(nuevoComentario)
+                        
+                        DispatchQueue.main.async {
+                            self.comentariosTable.reloadData()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    @IBAction func comentarButton(_ sender: UIButton) {
+        let id = UUID().uuidString
+        let session = UserDefaults.standard
+        let email = session.value(forKey: "email") as? String
+        db.collection("lugares").document(nombre!).collection("comentarios").document(id).setData(["usuario": email!, "comentario": comentarioField.text!]) { (error) in
+            //En caso de error
+            if let e = error {
+                print("Error al guardar en Firestore \(e.localizedDescription)")
+            } else {
+                //En caso de enviar
+                print("Se guardo la info en firestore")
+                let alerta = UIAlertController(title: "Perfecto!", message: "Haz compartido tu experiencia del lugar", preferredStyle: .alert)
+                let accionAceptar = UIAlertAction(title: "Aceptar", style: .default)
+                alerta.addAction(accionAceptar)
+                self.present(alerta, animated: true, completion: nil)
+                self.comentarioField.text = ""
+            }
+        }
 
+    }
+    
 
     
 }
@@ -171,3 +227,21 @@ extension String {
         self = self.capitalizingFirstLetter()
     }
 }
+
+//Extension para delegado y datasource de la tabla de comentarios
+extension LugarViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return comentarios.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let celda = comentariosTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        celda.textLabel?.text = comentarios[indexPath.row].comentario
+        celda.detailTextLabel?.text = comentarios[indexPath.row].usuario
+                
+        return celda
+    }
+    
+    
+}
+

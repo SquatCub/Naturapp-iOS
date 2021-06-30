@@ -11,12 +11,18 @@ import FirebaseFirestore
 import FirebaseStorage
 import MapKit
 import CoreLocation
+import DropDown
 
 class CompartirViewController: UIViewController {
     //Outlets del storyboard
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var nombreLabel: UITextField!
     @IBOutlet weak var descripcionLabel: UITextView!
+    //Outlets para el Dropdown menu
+    @IBOutlet weak var dropView: UIView!
+    @IBOutlet weak var buttonDown: UIButton!
+    let dropDown = DropDown()
+    let dataDown = ["Bosque", "Lago", "Río", "Sendero"]
     
     // Manager para usar el GPS
     var manager = CLLocationManager()
@@ -29,19 +35,29 @@ class CompartirViewController: UIViewController {
         initializeLocation()
         //Inicializa la gestura de la imagen
         initializeImage()
-        
+        //Text field descripcion
         descripcionLabel.layer.borderWidth = 1
         descripcionLabel.layer.borderColor = CGColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
+        
+        //
+        dropDown.anchorView = dropView
+        dropDown.dataSource = dataDown
+        dropDown.selectionAction = { [self] (index: Int, item: String) in
+            buttonDown.setTitle(" \(item)", for: .normal)
+        }
     }
     
     
     @IBAction func compartirButtton(_ sender: UIButton) {
         //Checar si hay imagen
-        guard let image = image.image, let datosImage = image.jpegData(compressionQuality: 0.5) else {
+        guard let image = image.image, let datosImage = image.jpegData(compressionQuality: 0.2) else {
             print ("Error")
             return
         }
         let nombre = nombreLabel.text!
+        let categoria = buttonDown.titleLabel?.text ?? "Otra"
+        print(categoria)
+        
         let imageReferencia = Storage.storage().reference().child("lugares").child(nombre)
         
         //Subir datos a Firestorage
@@ -61,7 +77,7 @@ class CompartirViewController: UIViewController {
                 //Subir a Firestore
                 let dataReferencia = Firestore.firestore().collection("lugares").document(nombre)
                 let urlString = url.absoluteString
-                let datosEnviar = ["imagen": urlString, "nombre": nombre, "descripcion": self.descripcionLabel.text ?? "", "latitud": "\(self.latitud!)", "longitud": "\(self.longitud!)"] as [String : Any]
+                let datosEnviar = ["imagen": urlString, "nombre": nombre, "categoria": categoria, "descripcion": self.descripcionLabel.text ?? "", "latitud": "\(self.latitud!)", "longitud": "\(self.longitud!)"] as [String : Any]
                 
                 dataReferencia.setData(datosEnviar) { (error) in
                     if let err = error {
@@ -74,17 +90,19 @@ class CompartirViewController: UIViewController {
                         self.present(alerta, animated: true, completion: nil)
                         self.nombreLabel.text = ""
                         self.descripcionLabel.text = ""
+                        self.image.contentMode = .scaleAspectFit
                         self.image.image = #imageLiteral(resourceName: "preview")
                         print("Se guardo correctamente en FS")
                     }
                 }
             }
+ 
         }
     }
     
     func initializeImage() {
         //Agregar gestura a la imagen
-        image.layer.cornerRadius = 30
+        image.layer.cornerRadius = 10
         let gestura = UITapGestureRecognizer(target: self, action: #selector(clickImagen))
         gestura.numberOfTapsRequired = 1
         gestura.numberOfTouchesRequired = 1
@@ -112,6 +130,9 @@ class CompartirViewController: UIViewController {
         vc.allowsEditing = true
         present(vc, animated: true, completion: nil)
     }
+    @IBAction func showDrop(_ sender: UIButton) {
+        dropDown.show()
+    }
 }
 
 //Extenciones para la gestura
@@ -121,7 +142,6 @@ extension CompartirViewController: UIImagePickerControllerDelegate, UINavigation
         if let imagenSeleccionada = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
             image.image = imagenSeleccionada
             image.contentMode = .scaleAspectFill
-            image.layer.cornerRadius = 10
         }
         picker.dismiss(animated: true, completion: nil)
     }

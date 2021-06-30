@@ -12,6 +12,6 @@ pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
 pod 'GoogleSignIn'
 pod 'IQKeyboardManagerSwift'
-
+pod 'DropDown', '2.3.2'
 
 end
