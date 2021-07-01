@@ -1,85 +1,73 @@
 //
-//  InicioViewController.swift
+//  FiltradoViewController.swift
 //  Naturapp
 //
-//  Created by Brandon Rodriguez Molina on 19/06/21.
+//  Created by Brandon Rodriguez Molina on 30/06/21.
 //
 
 import UIKit
 import Firebase
-import GoogleSignIn
 
-class InicioViewController: UIViewController {
+class FiltradoViewController: UIViewController {
+    //Variable del segue
+    var categoria: String?
     //Base de datos
     let db = Firestore.firestore()
     //Objeto personalizado de lugar
     var lugares = [Lugar]()
-    //Outlets del storyboard
-    @IBOutlet weak var collectionView: UICollectionView!
     //Variable a mandar en el segue
     var lugarActual: String?
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = categoria!
         let collectionLayout = UICollectionViewFlowLayout()
         collectionLayout.itemSize = CGSize(width: view.frame.size.width/2 - 20, height: 160)
         collectionView.collectionViewLayout = collectionLayout
         collectionView.register(UINib(nibName: "MyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "col")
         collectionView.delegate = self
         collectionView.dataSource = self
+        
         initialSetup()
-        // Do any additional setup after loading the view.
     }
     
     func initialSetup() {
         navigationController?.isNavigationBarHidden = false
-        navigationItem.hidesBackButton = true
-        saveSession()
         cargarLugares()
     }
     
     func cargarLugares() {
-        db.collection("lugares").addSnapshotListener() { (querySnapshot, err) in
-            //Vaciar arreglo de lugares
-            self.lugares = []
-            if let e = err {
-                print("Error al obtener datos \(e.localizedDescription)")
-            } else {
-                if let snapshotDocumentos = querySnapshot?.documents {
-                    for document in snapshotDocumentos {
-                        print("\(document.data())")
-                        //Crear objeto Mensaje
-                        let datos = document.data()
-                        //Obtener parametros
-                        guard let nombreFS = datos["nombre"] as? String else { return }
-                        guard let imagenFS = datos["imagen"] as? String else { return }
-                        
-                        
-                        //Crear objeto y agregarlo al arreglo
-                        let nuevoLugar = Lugar(nombre: nombreFS, imagen: imagenFS)
-                        self.lugares.append(nuevoLugar)
-                    }
-                    DispatchQueue.main.async {
-                        self.collectionView.reloadData()
+        db.collection("lugares").whereField("categoria", isEqualTo: " \(categoria!)")
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    if let snapshotDocumentos = querySnapshot?.documents {
+                        for document in snapshotDocumentos {
+                            //Obtener data
+                            let datos = document.data()
+                            //Obtener parametros
+                            guard let nombreFS = datos["nombre"] as? String else { return }
+                            guard let imagenFS = datos["imagen"] as? String else { return }
+                            //Crear objeto y agregarlo al arreglo
+                            let nuevoLugar = Lugar(nombre: nombreFS, imagen: imagenFS)
+                            self.lugares.append(nuevoLugar)
+                            print("aah")
+                        }
+                        DispatchQueue.main.async {
+                            self.collectionView.reloadData()
+                        }
                     }
                 }
-            }
         }
-    }
-    func saveSession() {
-        if let email = Auth.auth().currentUser?.email {
-            let session = UserDefaults.standard
-            session.setValue(email, forKey: "email")
-            session.synchronize()
-        }
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        collectionView.reloadData()
+
     }
 }
 
 //Saber donde hago click en el dash
-extension InicioViewController: UICollectionViewDelegate {
+extension FiltradoViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         lugarActual = lugares[indexPath.row].nombre
@@ -93,7 +81,7 @@ extension InicioViewController: UICollectionViewDelegate {
     }
 }
 //Datasource del carrusel
-extension InicioViewController: UICollectionViewDataSource {
+extension FiltradoViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return lugares.count
     }
@@ -117,8 +105,10 @@ extension InicioViewController: UICollectionViewDataSource {
     }
 }
 
-extension InicioViewController: UICollectionViewDelegateFlowLayout {
+extension FiltradoViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.size.width/2 - 20, height: 160)
     }
 }
+
+

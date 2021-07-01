@@ -27,6 +27,8 @@
 		AC8D3A7626897ADE00A76CCD /* ClimaModelo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8D3A7526897ADE00A76CCD /* ClimaModelo.swift */; };
 		AC8D3A7926897B2D00A76CCD /* ClimaDatos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8D3A7826897B2D00A76CCD /* ClimaDatos.swift */; };
 		AC9D107B268C36CD0005ABC2 /* Comentario.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D107A268C36CD0005ABC2 /* Comentario.swift */; };
+		AC9D301F268D5D6F0042F876 /* CategoriasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D301E268D5D6F0042F876 /* CategoriasViewController.swift */; };
+		AC9D3022268D5F800042F876 /* FiltradoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D3021268D5F800042F876 /* FiltradoViewController.swift */; };
 		ACC4895426856CF200720093 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC4895326856CF200720093 /* OnBoardingViewController.swift */; };
 		ACC4895F2685714200720093 /* OnBoardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC4895E2685714200720093 /* OnBoardingSlide.swift */; };
 		ACC489622685736500720093 /* SlideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC489612685736500720093 /* SlideCollectionViewCell.swift */; };
@@ -56,6 +58,8 @@
 		AC8D3A7526897ADE00A76CCD /* ClimaModelo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimaModelo.swift; sourceTree = "<group>"; };
 		AC8D3A7826897B2D00A76CCD /* ClimaDatos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimaDatos.swift; sourceTree = "<group>"; };
 		AC9D107A268C36CD0005ABC2 /* Comentario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comentario.swift; sourceTree = "<group>"; };
+		AC9D301E268D5D6F0042F876 /* CategoriasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriasViewController.swift; sourceTree = "<group>"; };
+		AC9D3021268D5F800042F876 /* FiltradoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltradoViewController.swift; sourceTree = "<group>"; };
 		ACC4895326856CF200720093 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		ACC4895E2685714200720093 /* OnBoardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingSlide.swift; sourceTree = "<group>"; };
 		ACC489612685736500720093 /* SlideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 				AC4FF27B267870EE008851D4 /* RegistroViewController.swift */,
 				AC4FF24E2678545C008851D4 /* ViewController.swift */,
 				AC85404E2689A19A00F1028C /* PerfilViewController.swift */,
+				AC9D301E268D5D6F0042F876 /* CategoriasViewController.swift */,
+				AC9D3021268D5F800042F876 /* FiltradoViewController.swift */,
 			);
 			path = Controladores;
 			sourceTree = "<group>";
@@ -307,6 +313,8 @@
 			files = (
 				AC8D3A7226897A7F00A76CCD /* ClimaManager.swift in Sources */,
 				AC441D20267EC62A001BF8A0 /* CompartirViewController.swift in Sources */,
+				AC9D3022268D5F800042F876 /* FiltradoViewController.swift in Sources */,
+				AC9D301F268D5D6F0042F876 /* CategoriasViewController.swift in Sources */,
 				AC441D23267ECC00001BF8A0 /* Lugar.swift in Sources */,
 				AC8D3A7926897B2D00A76CCD /* ClimaDatos.swift in Sources */,
 				AC4FF24F2678545C008851D4 /* ViewController.swift in Sources */,

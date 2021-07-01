@@ -223,7 +223,103 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIl-c6-UuB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4866" y="-382"/>
+            <point key="canvasLocation" x="4764" y="-812"/>
+        </scene>
+        <!--Categorías-->
+        <scene sceneID="AZi-Co-DdY">
+            <objects>
+                <viewController id="NjX-Sm-f1H" customClass="CategoriasViewController" customModule="Naturapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hie-L6-MoX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2EZ-qp-YSW">
+                                <rect key="frame" x="10" y="44" width="355" height="623"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fcc-bc-Ikm">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ZYE-Ca-pgz">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4rj-Ba-ngm">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ban-No-ZpA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2EZ-qp-YSW" firstAttribute="leading" secondItem="ban-No-ZpA" secondAttribute="leading" constant="10" id="5rI-qA-LGZ"/>
+                            <constraint firstItem="ban-No-ZpA" firstAttribute="trailing" secondItem="2EZ-qp-YSW" secondAttribute="trailing" constant="10" id="Qzo-5j-VhF"/>
+                            <constraint firstItem="2EZ-qp-YSW" firstAttribute="top" secondItem="ban-No-ZpA" secondAttribute="top" id="etm-qu-M5P"/>
+                            <constraint firstAttribute="bottom" secondItem="2EZ-qp-YSW" secondAttribute="bottom" id="pV2-z9-nWI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Categorías" id="Jx5-zH-PEq"/>
+                    <connections>
+                        <outlet property="collectionView" destination="2EZ-qp-YSW" id="fpQ-hN-7c0"/>
+                        <segue destination="EqJ-o1-iQs" kind="show" identifier="filtrado" id="ozD-n0-opW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fRC-7a-HIj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4764" y="-68"/>
+        </scene>
+        <!--Titulo-->
+        <scene sceneID="wHo-hO-n5e">
+            <objects>
+                <viewController id="EqJ-o1-iQs" customClass="FiltradoViewController" customModule="Naturapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dMd-ZF-HCx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Wmy-GZ-dDc">
+                                <rect key="frame" x="10" y="0.0" width="355" height="618"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hSw-Ea-MIM">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="x8k-aw-6DN">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="L13-z7-FWl">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dnd-GP-umW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Wmy-GZ-dDc" firstAttribute="leading" secondItem="dnd-GP-umW" secondAttribute="leading" constant="10" id="0Sh-Vt-LOQ"/>
+                            <constraint firstItem="Wmy-GZ-dDc" firstAttribute="bottom" secondItem="dnd-GP-umW" secondAttribute="bottom" id="1Vk-nb-dVQ"/>
+                            <constraint firstItem="Wmy-GZ-dDc" firstAttribute="top" secondItem="dMd-ZF-HCx" secondAttribute="top" id="88a-GE-eFj"/>
+                            <constraint firstItem="dnd-GP-umW" firstAttribute="trailing" secondItem="Wmy-GZ-dDc" secondAttribute="trailing" constant="10" id="xx8-59-0fY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Titulo" id="vu9-Vi-UB9"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Wmy-GZ-dDc" id="9l7-0h-BBc"/>
+                        <segue destination="b44-7c-L2J" kind="show" identifier="lugar" id="ALx-Sv-D4E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LBS-Xv-1Xk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5692" y="-69"/>
         </scene>
         <!--Compartir lugar-->
         <scene sceneID="MOf-ra-ejA">
@@ -417,7 +513,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Elr-iN-EOo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4865" y="349"/>
+            <point key="canvasLocation" x="4764" y="658"/>
         </scene>
         <!--Lugar View Controller-->
         <scene sceneID="rm9-rF-aYR">
@@ -689,7 +785,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wt1-2m-xnV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5889" y="-383"/>
+            <point key="canvasLocation" x="6828" y="-383.20839580209901"/>
         </scene>
         <!--Registro-->
         <scene sceneID="3Db-1B-sXL">
@@ -940,8 +1036,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="765-I7-kiA" kind="relationship" relationship="viewControllers" id="hRu-gI-HAC"/>
-                        <segue destination="JSc-GX-nvB" kind="relationship" relationship="viewControllers" id="d9E-Lb-jdF"/>
-                        <segue destination="Bmj-1d-pnG" kind="relationship" relationship="viewControllers" id="FBr-DM-NSq"/>
+                        <segue destination="lfm-aA-IOj" kind="relationship" relationship="viewControllers" id="Qg8-Uo-CZm"/>
+                        <segue destination="JSc-GX-nvB" kind="relationship" relationship="viewControllers" id="C6H-FM-YUt"/>
+                        <segue destination="Bmj-1d-pnG" kind="relationship" relationship="viewControllers" id="qfU-bs-AVR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mOx-aD-dQO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1026,7 +1123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="elJ-iq-FDa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4690" y="1018"/>
+            <point key="canvasLocation" x="4684" y="1352"/>
         </scene>
         <!--Descubrir-->
         <scene sceneID="mhE-oP-yOd">
@@ -1045,7 +1142,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cnQ-v8-Bsk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3929" y="-382"/>
+            <point key="canvasLocation" x="3828" y="-812"/>
         </scene>
         <!--Perfil-->
         <scene sceneID="ciH-ah-itv">
@@ -1064,7 +1161,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YrD-v1-0EX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3702" y="1018"/>
+            <point key="canvasLocation" x="3828" y="1352"/>
         </scene>
         <!--Compartir-->
         <scene sceneID="fCL-WL-fUc">
@@ -1083,11 +1180,31 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVm-hl-YiD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3926" y="348"/>
+            <point key="canvasLocation" x="3825" y="657"/>
+        </scene>
+        <!--Categorías-->
+        <scene sceneID="ASb-yv-Nwr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lfm-aA-IOj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Categorías" image="square.grid.2x2.fill" catalog="system" id="tya-8u-oNx"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="7gy-4a-e1e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NjX-Sm-f1H" kind="relationship" relationship="rootViewController" id="tR8-ph-dbe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v0m-Vk-zvH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3825" y="-68"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="OzP-h2-5tL"/>
+        <segue reference="y15-52-YIe"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="banner" width="1000" height="273"/>

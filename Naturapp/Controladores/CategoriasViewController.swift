@@ -1,23 +1,22 @@
 //
-//  InicioViewController.swift
+//  CategoriasViewController.swift
 //  Naturapp
 //
-//  Created by Brandon Rodriguez Molina on 19/06/21.
+//  Created by Brandon Rodriguez Molina on 30/06/21.
 //
 
 import UIKit
 import Firebase
-import GoogleSignIn
 
-class InicioViewController: UIViewController {
+class CategoriasViewController: UIViewController {
     //Base de datos
     let db = Firestore.firestore()
     //Objeto personalizado de lugar
-    var lugares = [Lugar]()
-    //Outlets del storyboard
+    var categorias = [Lugar]()
+    //Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     //Variable a mandar en el segue
-    var lugarActual: String?
+    var categoriaActual: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,21 +26,20 @@ class InicioViewController: UIViewController {
         collectionView.register(UINib(nibName: "MyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "col")
         collectionView.delegate = self
         collectionView.dataSource = self
+        
         initialSetup()
-        // Do any additional setup after loading the view.
     }
     
     func initialSetup() {
         navigationController?.isNavigationBarHidden = false
         navigationItem.hidesBackButton = true
-        saveSession()
-        cargarLugares()
+        cargarCategorias()
     }
     
-    func cargarLugares() {
-        db.collection("lugares").addSnapshotListener() { (querySnapshot, err) in
-            //Vaciar arreglo de lugares
-            self.lugares = []
+    func cargarCategorias()  {
+        db.collection("categorias").addSnapshotListener() { (querySnapshot, err) in
+            //Vaciar arreglo de chats
+            self.categorias = []
             if let e = err {
                 print("Error al obtener datos \(e.localizedDescription)")
             } else {
@@ -57,51 +55,41 @@ class InicioViewController: UIViewController {
                         
                         //Crear objeto y agregarlo al arreglo
                         let nuevoLugar = Lugar(nombre: nombreFS, imagen: imagenFS)
-                        self.lugares.append(nuevoLugar)
-                    }
-                    DispatchQueue.main.async {
-                        self.collectionView.reloadData()
+                        self.categorias.append(nuevoLugar)
+                        DispatchQueue.main.async {
+                            self.collectionView.reloadData()
+                        }
                     }
                 }
             }
         }
     }
-    func saveSession() {
-        if let email = Auth.auth().currentUser?.email {
-            let session = UserDefaults.standard
-            session.setValue(email, forKey: "email")
-            session.synchronize()
-        }
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        collectionView.reloadData()
-    }
 }
 
 //Saber donde hago click en el dash
-extension InicioViewController: UICollectionViewDelegate {
+extension CategoriasViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        lugarActual = lugares[indexPath.row].nombre
-        performSegue(withIdentifier: "lugar", sender: self)
+        categoriaActual = categorias[indexPath.row].nombre
+        performSegue(withIdentifier: "filtrado", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "lugar" {
-            let destino = segue.destination as! LugarViewController
-            destino.nombre = lugarActual
+        if segue.identifier == "filtrado" {
+            let destino = segue.destination as! FiltradoViewController
+            destino.categoria = categoriaActual
         }
     }
 }
 //Datasource del carrusel
-extension InicioViewController: UICollectionViewDataSource {
+extension CategoriasViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return lugares.count
+        return categorias.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "col", for: indexPath) as! MyCollectionViewCell
-        cell.tituloLabel.text = lugares[indexPath.row].nombre
+        cell.tituloLabel.text = categorias[indexPath.row].nombre
         
-        let url = URL(string: lugares[indexPath.row].imagen)
+        let url = URL(string: categorias[indexPath.row].imagen)
 
         DispatchQueue.main.async { [weak self] in
             if let data = try? Data(contentsOf: url!) {
@@ -117,8 +105,9 @@ extension InicioViewController: UICollectionViewDataSource {
     }
 }
 
-extension InicioViewController: UICollectionViewDelegateFlowLayout {
+extension CategoriasViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.size.width/2 - 20, height: 160)
     }
 }
+
