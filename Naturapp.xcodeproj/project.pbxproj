@@ -29,6 +29,8 @@
 		AC9D107B268C36CD0005ABC2 /* Comentario.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D107A268C36CD0005ABC2 /* Comentario.swift */; };
 		AC9D301F268D5D6F0042F876 /* CategoriasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D301E268D5D6F0042F876 /* CategoriasViewController.swift */; };
 		AC9D3022268D5F800042F876 /* FiltradoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D3021268D5F800042F876 /* FiltradoViewController.swift */; };
+		AC9D3026268D9D2A0042F876 /* ComentarioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D3024268D9D2A0042F876 /* ComentarioTableViewCell.swift */; };
+		AC9D3027268D9D2A0042F876 /* ComentarioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC9D3025268D9D2A0042F876 /* ComentarioTableViewCell.xib */; };
 		ACC4895426856CF200720093 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC4895326856CF200720093 /* OnBoardingViewController.swift */; };
 		ACC4895F2685714200720093 /* OnBoardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC4895E2685714200720093 /* OnBoardingSlide.swift */; };
 		ACC489622685736500720093 /* SlideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC489612685736500720093 /* SlideCollectionViewCell.swift */; };
@@ -60,6 +62,8 @@
 		AC9D107A268C36CD0005ABC2 /* Comentario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comentario.swift; sourceTree = "<group>"; };
 		AC9D301E268D5D6F0042F876 /* CategoriasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriasViewController.swift; sourceTree = "<group>"; };
 		AC9D3021268D5F800042F876 /* FiltradoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltradoViewController.swift; sourceTree = "<group>"; };
+		AC9D3024268D9D2A0042F876 /* ComentarioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentarioTableViewCell.swift; sourceTree = "<group>"; };
+		AC9D3025268D9D2A0042F876 /* ComentarioTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComentarioTableViewCell.xib; sourceTree = "<group>"; };
 		ACC4895326856CF200720093 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		ACC4895E2685714200720093 /* OnBoardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingSlide.swift; sourceTree = "<group>"; };
 		ACC489612685736500720093 /* SlideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 				AC4FF2582678545D008851D4 /* Info.plist */,
 				AC441D1A267EB519001BF8A0 /* MyCollectionViewCell.swift */,
 				AC441D1B267EB519001BF8A0 /* MyCollectionViewCell.xib */,
+				AC9D3024268D9D2A0042F876 /* ComentarioTableViewCell.swift */,
+				AC9D3025268D9D2A0042F876 /* ComentarioTableViewCell.xib */,
 			);
 			path = Naturapp;
 			sourceTree = "<group>";
@@ -239,6 +245,7 @@
 			files = (
 				AC441D1D267EB519001BF8A0 /* MyCollectionViewCell.xib in Resources */,
 				AC4FF2572678545D008851D4 /* LaunchScreen.storyboard in Resources */,
+				AC9D3027268D9D2A0042F876 /* ComentarioTableViewCell.xib in Resources */,
 				AC4FF26526785FFB008851D4 /* GoogleService-Info.plist in Resources */,
 				AC4FF2542678545D008851D4 /* Assets.xcassets in Resources */,
 				AC4FF2522678545C008851D4 /* Main.storyboard in Resources */,
@@ -319,6 +326,7 @@
 				AC8D3A7926897B2D00A76CCD /* ClimaDatos.swift in Sources */,
 				AC4FF24F2678545C008851D4 /* ViewController.swift in Sources */,
 				AC4FF27C267870EE008851D4 /* RegistroViewController.swift in Sources */,
+				AC9D3026268D9D2A0042F876 /* ComentarioTableViewCell.swift in Sources */,
 				AC9D107B268C36CD0005ABC2 /* Comentario.swift in Sources */,
 				AC85404F2689A19A00F1028C /* PerfilViewController.swift in Sources */,
 				ACC489622685736500720093 /* SlideCollectionViewCell.swift in Sources */,

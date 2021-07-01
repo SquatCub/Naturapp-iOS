@@ -53,6 +53,8 @@ class LugarViewController: UIViewController, ClimaManagerDelegado {
         super.viewDidLoad()
         self.navigationItem.title = nombre!
         
+        //Registro de la celda custom
+        comentariosTable.register(UINib(nibName: "ComentarioTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         
         mapMK.delegate = self
         //Establecer esta clase como el delegado del ClimaManager
@@ -235,10 +237,28 @@ extension LugarViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let celda = comentariosTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        celda.textLabel?.text = comentarios[indexPath.row].comentario
-        celda.detailTextLabel?.text = comentarios[indexPath.row].usuario
-                
+        let celda = comentariosTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ComentarioTableViewCell
+        celda.comentarioLabel.text = comentarios[indexPath.row].comentario
+        let perfil = self.db.collection("perfiles").document(comentarios[indexPath.row].usuario)
+        perfil.getDocument{ (document, error) in
+            if let document = document, document.exists {
+                celda.usuarioLabel.text = "De: \(document.data()!["nombre"]!)"
+                let urlString = document.data()!["imagen"] as? String
+                let url = URL(string: urlString!)
+
+                DispatchQueue.main.async { [weak self] in
+                    if let data = try? Data(contentsOf: url!) {
+                        if let image = UIImage(data: data) {
+                            DispatchQueue.main.async {
+                                celda.contactoImagen.image = image
+                            }
+                        }
+                    }
+                }
+                } else {
+                    print("Document does not exist")
+                }
+        }
         return celda
     }
     

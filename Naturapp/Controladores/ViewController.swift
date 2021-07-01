@@ -35,7 +35,7 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
         myCarousel.dataSource = self
         myCarousel.delegate = self
         myCarousel.autoscroll = -0.2
-        myCarousel.frame = CGRect(x: 0, y: 30, width: view.frame.size.width, height: 100)
+        myCarousel.frame = CGRect(x: 0, y: 40, width: view.frame.size.width, height: 100)
         
         initialSetup()
     }
@@ -95,11 +95,11 @@ class ViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
     func initialSetup() {
         
         let bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0.0, y: correoTextField.frame.height - 7, width: correoTextField.frame.width, height: 0.6)
+        bottomLine.frame = CGRect(x: 0.0, y: correoTextField.frame.height - 7, width: correoTextField.frame.width+30, height: 0.6)
         bottomLine.backgroundColor = UIColor.gray.cgColor
         
         let bottomLine2 = CALayer()
-        bottomLine2.frame = CGRect(x: 0.0, y: contraseñaTextField.frame.height - 7, width: contraseñaTextField.frame.width, height: 0.6)
+        bottomLine2.frame = CGRect(x: 0.0, y: contraseñaTextField.frame.height - 7, width: contraseñaTextField.frame.width+30, height: 0.6)
         bottomLine2.backgroundColor = UIColor.gray.cgColor
         
         correoTextField.borderStyle = UITextField.BorderStyle.none
