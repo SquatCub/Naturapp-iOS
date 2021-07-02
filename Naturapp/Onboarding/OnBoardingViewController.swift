@@ -32,7 +32,7 @@ class OnBoardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        checkSession()
 
         diapositivas = [
             OnBoardingSlide(titulo: "Bienvenido a Naturapp", descripcion: "Aquí podrás encontrar y compartir lugares increíbles", imagen: #imageLiteral(resourceName: "title")),
@@ -74,8 +74,16 @@ extension OnBoardingViewController: UICollectionViewDelegate, UICollectionViewDa
         celda.configurar(slide: diapositivas[indexPath.row])
         return celda
     }
- 
     
+    func checkSession() {
+        let session = UserDefaults.standard
+        if let email = session.value(forKey: "email") as? String {
+            let vc = storyboard?.instantiateViewController(identifier: "INICIO") as! UIViewController
+            vc.modalPresentationStyle = .fullScreen
+            vc.modalTransitionStyle = .crossDissolve
+            present(vc, animated: true, completion: nil)
+        }
+    }
 }
 
 extension OnBoardingViewController: UICollectionViewDelegateFlowLayout {
